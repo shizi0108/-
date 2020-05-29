@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baidu.mapper.OderZktMapper">
+
+    <select id="getAllOder" resultType="com.baidu.common.resp.OderRes">
+        SELECT o.*,s.SNAME,s.PRICE,(o.BNUM*s.PRICE)as moeny,u.UNAME
+            from oder_zkt o
+            LEFT JOIN shop_zkt s on o.sid=s.SID
+            LEFT JOIN user_zkt u on o.UID=u.UID
+    </select>
+</mapper>
